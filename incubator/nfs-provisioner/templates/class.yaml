@@ -6,4 +6,4 @@ metadata:
   label:
     storageclass.beta.kubernetes.io/is-default-class: true
   {{ end }}
-provisioner: {{ .Values.provisionerName }}
+  provisioner: {{ .Values.provisionerName }}
