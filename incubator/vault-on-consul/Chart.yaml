@@ -1,0 +1,12 @@
+apiVersion: v1
+description: A Hashicorp Vault chart for Kubernetes
+name: vault
+version: 1.0.0
+keywords: [hashicorp, vault, secret]
+home: https://vaultproject.io
+sources:
+  - https://github.com/hashicorp/vault
+maintainers:
+  - name: Don Spaulding
+    email: don@mirusresearch.com
+engine: gotpl

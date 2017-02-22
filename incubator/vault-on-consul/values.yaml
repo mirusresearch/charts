@@ -1,0 +1,6 @@
+image: "vault"
+imageTag: "0.6.5"
+imagePullPolicy: "IfNotPresent"
+debug: "false"
+cpu: "512m"
+memory: "200Mi"
