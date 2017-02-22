@@ -13,9 +13,13 @@ spec:
     - name: "{{ template "fullname" . }}"
       image: "{{ .Values.image }}:{{ .Values.imageTag }}"
       imagePullPolicy: "IfNotPresent"
+      env:
+        - name: PROVISIONER_NAME
+          value: "{{ .Values.provisionerName }}"
       volumeMounts:
         - name: pv-volume
           mountPath: /tmp/hostpath-provisioner
+
   volumes:
     - name: pv-volume
       hostPath:
