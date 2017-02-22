@@ -1,0 +1,9 @@
+name: hostpath-provisioner
+home: https://github.com/mirusresearch/charts/incubator/hostpath-provisioner
+version: 1.0.0
+description: hostpath-provisioner Chart for Kubernetes.
+sources:
+  - https://github.com/mirusresearch/charts/incubator/hostpath-provisioner
+maintainers:
+  - name: Don Spaulding
+    email: don@mirusresearch.com

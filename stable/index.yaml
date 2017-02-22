@@ -1,7 +1,7 @@
 apiVersion: v1
 entries:
   consul:
-  - created: 2017-02-22T13:49:38.712308975-06:00
+  - created: 2017-02-22T14:20:29.099949182-06:00
     description: Hashicorp Consul Helm chart for Kubernetes.
     digest: 8d2bcc1b7d6cd7107b7721fadf0ced5d54506bb16ad303764251ca2cb3c5afef
     home: https://github.com/hashicorp/consul
@@ -16,11 +16,11 @@ entries:
     - https://mirusresearch.github.io/charts/stable/consul-0.2.0.tgz
     version: 0.2.0
   vault:
-  - created: 2017-02-22T13:49:38.712452712-06:00
+  - created: 2017-02-22T14:20:29.100182931-06:00
     description: HashiCorp Vault Helm deployment
     digest: 87aa288c68bf4f0f9bebcf47cc166f6c5fb115fd7885cd73747051f9a93efa73
     name: vault
     urls:
     - https://mirusresearch.github.io/charts/stable/vault-0.0.1.tgz
     version: 0.0.1
-generated: 2017-02-22T13:49:38.711861366-06:00
+generated: 2017-02-22T14:20:29.099524347-06:00
