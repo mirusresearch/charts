@@ -1,9 +1,9 @@
 apiVersion: v1
 entries:
   hostpath-provisioner:
-  - created: 2017-02-22T15:21:22.022842915-06:00
+  - created: 2017-02-22T16:01:00.481749955-06:00
     description: hostpath-provisioner Chart for Kubernetes.
-    digest: c3cac39ac999462026713bc00217e516653f059beeef4c3142fddd54da1a6231
+    digest: 2238af18002ae5b1dcacabd37b40aeb0a3c4501cc29a87bf1a8a9defad68bcaa
     home: https://github.com/mirusresearch/charts/incubator/hostpath-provisioner
     maintainers:
     - email: don@mirusresearch.com
@@ -15,7 +15,7 @@ entries:
     - https://mirusresearch.github.io/charts/incubator/hostpath-provisioner-1.0.0.tgz
     version: 1.0.0
   nfs-provisioner:
-  - created: 2017-02-22T15:21:22.023275136-06:00
+  - created: 2017-02-22T16:01:00.485772154-06:00
     description: nfs-provisioner Chart for Kubernetes.
     digest: 17aa09cb01dd2739328dd95a008d37a6b492dac26d7fbaa197da27db2e012259
     home: https://github.com/kubernetes-incubator/nfs-provisioner
@@ -28,7 +28,7 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.2.tgz
     version: 1.0.2
-  - created: 2017-02-22T15:21:22.023053873-06:00
+  - created: 2017-02-22T16:01:00.484496277-06:00
     description: nfs-provisioner Chart for Kubernetes.
     digest: d5a860790f84a6d25c87fa9e8682a6c30a27da30b5a1ff6aebce10eadb14a5dc
     home: https://github.com/kubernetes-incubator/nfs-provisioner
@@ -41,4 +41,18 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.1-a.tgz
     version: 1.0.1-a
-generated: 2017-02-22T15:21:22.022515612-06:00
+  vault-consul-ui:
+  - created: 2017-02-22T16:01:00.486128364-06:00
+    description: wraps vault, consul, and vault ui chart together
+    digest: 6796cac9b52f34a42e45ea23d4826af901de442395b1521b0709c9d22392ad3a
+    home: https://github.com/kubernetes-incubator/vault-consul-ui
+    maintainers:
+    - email: don@mirusresearch.com
+      name: Don Spaulding
+    name: vault-consul-ui
+    sources:
+    - https://github.com/mirusresearch/charts/incubator/vault-consul-ui
+    urls:
+    - https://mirusresearch.github.io/charts/incubator/vault-consul-ui-0.1.0.tgz
+    version: 0.1.0
+generated: 2017-02-22T16:01:00.481306179-06:00

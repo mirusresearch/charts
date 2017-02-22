@@ -1,6 +1,6 @@
 image: alectroemel/hostpath-provisioner
 imageTag: latest
 provisionerName: "cluster.local/hostpath"
-storageClass: local-hostpath
+storageClass: default
 defaultClass: true
 hostPath: /tmp

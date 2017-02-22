@@ -1,0 +1,9 @@
+name: vault-consul-ui
+home: https://github.com/kubernetes-incubator/vault-consul-ui
+version: 0.1.0
+description: wraps vault, consul, and vault ui chart together
+sources:
+  - https://github.com/mirusresearch/charts/incubator/vault-consul-ui
+maintainers:
+  - name: Don Spaulding
+    email: don@mirusresearch.com

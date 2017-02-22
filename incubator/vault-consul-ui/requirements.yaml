@@ -1,0 +1,7 @@
+dependencies:
+  - name: consul
+    version: 0.2.0
+    repository: https://mirusresearch.github.io/charts/stable
+  - name: vault
+    version: 0.0.1
+    repository: https://mirusresearch.github.io/charts/stable
