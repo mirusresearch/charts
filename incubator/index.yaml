@@ -1,7 +1,7 @@
 apiVersion: v1
 entries:
   hostpath-provisioner:
-  - created: 2017-02-22T16:59:13.963520517-06:00
+  - created: 2017-02-22T16:59:27.142913548-06:00
     description: hostpath-provisioner Chart for Kubernetes.
     digest: 2238af18002ae5b1dcacabd37b40aeb0a3c4501cc29a87bf1a8a9defad68bcaa
     home: https://github.com/mirusresearch/charts/incubator/hostpath-provisioner
@@ -15,7 +15,7 @@ entries:
     - https://mirusresearch.github.io/charts/incubator/hostpath-provisioner-1.0.0.tgz
     version: 1.0.0
   nfs-provisioner:
-  - created: 2017-02-22T16:59:13.96428597-06:00
+  - created: 2017-02-22T16:59:27.143552082-06:00
     description: nfs-provisioner Chart for Kubernetes.
     digest: 17aa09cb01dd2739328dd95a008d37a6b492dac26d7fbaa197da27db2e012259
     home: https://github.com/kubernetes-incubator/nfs-provisioner
@@ -28,7 +28,7 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.2.tgz
     version: 1.0.2
-  - created: 2017-02-22T16:59:13.96373082-06:00
+  - created: 2017-02-22T16:59:27.143243722-06:00
     description: nfs-provisioner Chart for Kubernetes.
     digest: d5a860790f84a6d25c87fa9e8682a6c30a27da30b5a1ff6aebce10eadb14a5dc
     home: https://github.com/kubernetes-incubator/nfs-provisioner
@@ -42,9 +42,9 @@ entries:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.1-a.tgz
     version: 1.0.1-a
   vault-consul-ui:
-  - created: 2017-02-22T16:59:13.964940176-06:00
+  - created: 2017-02-22T16:59:27.143686527-06:00
     description: wraps vault, consul, and vault ui chart together
-    digest: 6796cac9b52f34a42e45ea23d4826af901de442395b1521b0709c9d22392ad3a
+    digest: e35df8e18b4400aa6f61ee5b9b942714104cc2781d2dc8421c8f6add661c378b
     home: https://github.com/kubernetes-incubator/vault-consul-ui
     maintainers:
     - email: don@mirusresearch.com
@@ -57,7 +57,7 @@ entries:
     version: 0.1.0
   vault-on-consul:
   - apiVersion: v1
-    created: 2017-02-22T16:59:13.965189494-06:00
+    created: 2017-02-22T16:59:27.143906417-06:00
     description: A Hashicorp Vault chart for Kubernetes
     digest: ffab393a3a77f09853181b950797ab072f9f6a524eb75e0653439de5f87c4635
     engine: gotpl
@@ -75,4 +75,4 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/vault-on-consul-1.0.0.tgz
     version: 1.0.0
-generated: 2017-02-22T16:59:13.963190021-06:00
+generated: 2017-02-22T16:59:27.142516158-06:00
