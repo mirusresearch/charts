@@ -8,5 +8,8 @@ for repo_dir in "${REPO_DIRS[@]}"; do
     helm package $fname;
   done;
   popd;
-  helm repo index $repo_dir --url https://mirusresearch.github.io/charts/
+  helm repo index $repo_dir --url https://mirusresearch.github.io/charts/;
+  git add $repo_dir;
 done;
+
+git commit -m "Refresh helm indexes."
