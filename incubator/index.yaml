@@ -1,9 +1,9 @@
 apiVersion: v1
 entries:
   nfs-provisioner:
-  - created: 2017-02-22T11:51:19.793735207-06:00
+  - created: 2017-02-22T11:59:00.927934707-06:00
     description: nfs-provisioner Chart for Kubernetes.
-    digest: a2782a60d01577881d614444989a7dfc340c85ba95af8c72bd05d3953cb04ce6
+    digest: d5a860790f84a6d25c87fa9e8682a6c30a27da30b5a1ff6aebce10eadb14a5dc
     home: https://github.com/kubernetes-incubator/nfs-provisioner
     maintainers:
     - email: m@3ko.fr
@@ -14,4 +14,4 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.1-a.tgz
     version: 1.0.1-a
-generated: 2017-02-22T11:51:19.793415417-06:00
+generated: 2017-02-22T11:59:00.927578256-06:00
