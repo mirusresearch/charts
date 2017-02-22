@@ -4,4 +4,3 @@ provisionerName: "cluster.local/nfs"
 storageClass: local-nfs
 defaultClass: false
 hostPath: /srv
-serviceIp: 

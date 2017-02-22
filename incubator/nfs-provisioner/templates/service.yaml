@@ -8,9 +8,6 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 spec:
-  {{ if .Values.serviceIp }}
-  clusterIP: {{ .Values.serviceIp }}
-  {{ end }}
   type: ClusterIP
   ports:
     - name: nfs
