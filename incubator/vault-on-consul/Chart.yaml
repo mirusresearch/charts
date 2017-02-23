@@ -1,7 +1,7 @@
 apiVersion: v1
 description: A Hashicorp Vault chart for Kubernetes
 name: vault-on-consul
-version: 1.0.0
+version: "1.0.0"
 keywords: [hashicorp, vault, secret]
 home: https://vaultproject.io
 icon: https://www.vaultproject.io/assets/images/favicon-16466d1a.png

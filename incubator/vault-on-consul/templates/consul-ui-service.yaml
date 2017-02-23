@@ -13,4 +13,4 @@ spec:
     port: 8500
   selector:
     component: "{{.Release.Name}}-consul"
-  type: nodePort
+  type: NodePort

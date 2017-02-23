@@ -12,4 +12,4 @@ consul:
   storageClass: "default"
   cpu: "100m"
   memory: "256Mi"
-  persistantStorageSize: "1Gi"
+  persistentStorageSize: "1Gi"
