@@ -1,0 +1,130 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: "{{ template "fullname" . }}"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-{{.Values.Component}}"
+spec:
+  serviceName: "{{ template "fullname" . }}"
+  replicas: {{ .Values.consul.replicaCount }}
+  template:
+    metadata:
+      name: "{{ template "fullname" . }}-consul-ss"
+      labels:
+        heritage: {{.Release.Service | quote }}
+        release: {{.Release.Name | quote }}
+        chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+        component: "{{.Release.Name}}-consul"
+      annotations:
+        pod.alpha.kubernetes.io/initialized: "true"
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: "{{ template "fullname" . }}-consul"
+        image: "{{.Values.consul.image}}:{{.Values.consul.imageTag}}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 8500
+        - name: rpc
+          containerPort: 8400
+        - name: serflan-tcp
+          protocol: "TCP"
+          containerPort: 8301
+        - name: serflan-udp
+          protocol: "UDP"
+          containerPort: 8301
+        - name: serfwan-tcp
+          protocol: "TCP"
+          containerPort: 8302
+        - name: serfwan-udp
+          protocol: "UDP"
+          containerPort: 8302
+        - name: server
+          containerPort: 8300
+        - name: consuldns
+          containerPort: 8600
+        resources:
+          requests:
+            cpu: "{{.Values.consul.cpu}}"
+            memory: "{{.Values.consul.memory}}"
+        env:
+        - name: INITIAL_CLUSTER_SIZE
+          value: {{ .Values.consul.replicaCount | quote }}
+        - name: STATEFULSET_NAME
+          value: "{{ template "fullname" . }}"
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: STATEFULSET_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/lib/consul
+        - name: gossip-key
+          mountPath: /etc/consul/secrets
+          readOnly: true
+        livenessProbe:
+          exec:
+            command:
+            - consul
+            - members
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+        command:
+          - "/bin/sh"
+          - "-ec"
+          - |
+            IP=$(hostname -i)
+
+            if [ -e /etc/consul/secrets/gossip-key ]; then
+              echo "{\"encrypt\": \"$(base64 /etc/consul/secrets/gossip-key)\"}" > /etc/consul/encrypt.json
+              GOSSIP_KEY="-config-file /etc/consul/encrypt.json"
+            fi
+
+            for i in $(seq 0 $((${INITIAL_CLUSTER_SIZE} - 1))); do
+                while true; do
+                    echo "Waiting for ${STATEFULSET_NAME}-${i}.${STATEFULSET_NAME} to come up"
+                    ping -W 1 -c 1 ${STATEFULSET_NAME}-${i}.${STATEFULSET_NAME}.${STATEFULSET_NAMESPACE}.svc.cluster.local > /dev/null && break
+                    sleep 1s
+                done
+            done
+
+            PEERS=""
+            for i in $(seq 0 $((${INITIAL_CLUSTER_SIZE} - 1))); do
+                PEERS="${PEERS}${PEERS:+ } -retry-join $(ping -c 1 ${STATEFULSET_NAME}-${i}.${STATEFULSET_NAME}.${STATEFULSET_NAMESPACE}.svc.cluster.local | awk -F'[()]' '/PING/{print $2}')"
+            done
+
+            exec /bin/consul agent \
+              -ui \
+              -data-dir=/var/lib/consul \
+              -server \
+              -bootstrap-expect=${INITIAL_CLUSTER_SIZE} \
+              -bind=0.0.0.0 \
+              -advertise=${IP} \
+              ${PEERS} \
+              ${GOSSIP_KEY} \
+              -client=0.0.0.0
+      volumes:
+      - name: gossip-key
+        secret:
+          secretName: gossip-key
+  volumeClaimTemplates:
+  - metadata:
+      name: consul-datadir
+      annotations:
+        volume.beta.kubernetes.io/storage-class: {{.Values.consul.storageClass | quote}}
+    spec:
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          # upstream recommended max is 700M
+          storage: "{{.Values.consul.persistentStorageSize}}"

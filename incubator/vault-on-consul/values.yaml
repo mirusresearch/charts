@@ -4,3 +4,12 @@ imagePullPolicy: "IfNotPresent"
 debug: "false"
 cpu: "512m"
 memory: "200Mi"
+consul:
+  image: "consul"
+  imageTag: "0.7.2"
+  replicaCount: 3
+  storage: "500Mi"
+  storageClass: "default"
+  cpu: "100m"
+  memory: "256Mi"
+  persistantStorageSize: "1Gi"

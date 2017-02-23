@@ -23,7 +23,7 @@ spec:
           mountPath: /etc/vault/cfg
         env:
         - name: "VAULT_DEBUG"
-          value: {{ .Values.debug }}
+          value: {{ .Values.debug | quote }}
         resources:
           limits:
             cpu: {{ .Values.cpu }}
