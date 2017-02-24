@@ -66,7 +66,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         volumeMounts:
-        - name: datadir
+        - name: consul-datadir
           mountPath: /var/lib/consul
         - name: gossip-key
           mountPath: /etc/consul/secrets

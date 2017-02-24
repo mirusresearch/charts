@@ -1,0 +1,25 @@
+# This file creates the deployment object for the nginx ingress controller
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - image: {{ .Values.image }}:{{ .Values.imageTag }}
+        imagePullPolicy: IfNotPresent
+        name: {{ .Release.Name }}
+        ports:
+        - containerPort: 80
+          hostPort: 80
+        - containerPort: 443
+          hostPort: 443
+        args:
+         - -v=3

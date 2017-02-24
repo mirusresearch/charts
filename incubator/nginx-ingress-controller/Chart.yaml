@@ -1,0 +1,9 @@
+name: nginx-ingress-controller
+home: https://github.com/mirusresearch/charts/incubator/nginx-ingress-controller
+version: 1.0.0
+description: nginx-ingress-controller Chart for Kubernetes.
+sources:
+  - https://github.com/mirusresearch/charts/incubator/nginx-ingress-controller
+maintainers:
+  - name: Don Spaulding
+    email: don@mirusresearch.com

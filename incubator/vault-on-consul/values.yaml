@@ -1,7 +1,6 @@
 image: "vault"
 imageTag: "0.6.5"
 imagePullPolicy: "IfNotPresent"
-debug: "false"
 cpu: "512m"
 memory: "200Mi"
 consul:
@@ -13,3 +12,6 @@ consul:
   cpu: "100m"
   memory: "256Mi"
   persistentStorageSize: "1Gi"
+ingress:
+  email: test@example.com
+  domain: vault.yourproject.com
