@@ -1,0 +1,4 @@
+image: alectroemel/kube-cert-manager
+imageTag: 0.3.1
+staging: false
+provisioner: cluster.local/hostpath
