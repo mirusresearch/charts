@@ -1,0 +1,9 @@
+name: kcm
+home: https://github.com/mirusresearch/charts/incubator/kube-cert-manager
+version: 1.0.0
+description: auto generate lets encrypt ssl certs
+sources:
+  - https://github.com/mirusresearch/charts/incubator/kube-cert-manager
+maintainers:
+  - name: Don Spaulding
+    email: don@mirusresearch.com
