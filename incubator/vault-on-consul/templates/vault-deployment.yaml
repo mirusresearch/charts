@@ -15,9 +15,18 @@ spec:
       - name: {{.Release.Name}}
         image: "{{.Values.image}}:{{.Values.imageTag}}"
         imagePullPolicy: {{.Values.imagePullPolicy}}
+        command:
+          - vault
+        args:
+          - server
+          - -config=/etc/vault/cfg/vault-config.hcl
         ports:
           - name: http
             containerPort: 80
+        securityContext:
+          capabilities:
+            add:
+            - IPC_LOCK
         volumeMounts:
         - name: config
           mountPath: /etc/vault/cfg
@@ -33,5 +42,5 @@ spec:
         configMap:
           name: {{.Release.Name}}-config
           items:
-          - key: config.json
-            path: config.json
+          - key: vault-config.hcl
+            path: vault-config.hcl
