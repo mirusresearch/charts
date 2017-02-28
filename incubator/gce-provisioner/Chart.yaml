@@ -1,0 +1,9 @@
+name: gce-provisioner
+home: https://github.com/mirusresearch/charts/incubator/gce-provisioner
+version: 1.0.0
+description: Simply creates the storage calss object for the gce provisioner
+sources:
+  - https://github.com/mirusresearch/charts/incubator/gce-provisioner
+maintainers:
+  - name: Don Spaulding
+    email: don@mirusresearch.com

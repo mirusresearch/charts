@@ -6,7 +6,6 @@ metadata:
   name: {{ template "fullname" . }}
   annotations:
     volume.beta.kubernetes.io/storage-class: "default"
-    volume.beta.kubernetes.io/storage-provisioner: {{ .Values.provisioner}}
 spec:
   accessModes:
     - ReadWriteOnce
