@@ -1,10 +1,11 @@
-kind: StorageClass
 apiVersion: storage.k8s.io/v1beta1
+kind: StorageClass
 metadata:
-  name: {{ template "fullname" . | quote }}
-  {{ if .Values.defaultClass }}
-  labels:
+  name: "{{ template "fullname" . }}"
+  {{ if .Values.defaultClass}}
+  annotations:
     storageclass.beta.kubernetes.io/is-default-class: "true"
   {{ end }}
 provisioner: kubernetes.io/gce-pd
-{{ toYaml .Values.parameters}}
+parameters:
+{{ toYaml .Values.parameters | indent 2}}
