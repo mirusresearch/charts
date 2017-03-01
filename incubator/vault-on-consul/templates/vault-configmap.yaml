@@ -1,17 +1,19 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{.Release.Name}}-config
+  name: vault-config
+  namespace: "{{ template "namespace" . }}"
 data: 
-  config.json : |
+  vault-config.hcl : |
     backend "consul" {
-      address = "127.0.0.1:8500"
+      address = "consul-svc:8500"
+      redirect_addr = "https://{{ .Values.ingress.domain }}:80"
       path = "vault"
     }
+
+    cluster_name = "{{ template "fullname" . }}"
     
     listener "tcp" {
       address = "0.0.0.0:80"
-      tls_skip_verify = true
+      tls_disable = 1
     }
-
-    disable_mlock = true

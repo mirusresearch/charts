@@ -6,6 +6,14 @@ Expand the name of the chart.
 {{- default .Chart.Name .Values.nameOverride | trunc 24 -}}
 {{- end -}}
 
+
+{{/*
+Use a different default namespace unless one has been specified.
+*/}}
+{{- define "namespace" -}}
+{{- default .Release.Namespace .Values.namespace }}
+{{- end -}}
+
 {{/*
 Create a default fully qualified app name.
 We truncate at 24 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).

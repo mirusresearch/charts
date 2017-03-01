@@ -1,4 +1,4 @@
 defaultClass: true
 parameters:
   type: pd-standard
-  zone: us-central1-a
+  zone: us-central1-b

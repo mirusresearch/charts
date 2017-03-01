@@ -5,7 +5,7 @@ metadata:
     app: {{ template "fullname" . }}
   name: {{ template "fullname" . }}
   annotations:
-    volume.beta.kubernetes.io/storage-class: "default"
+    volume.beta.kubernetes.io/storage-class: default
 spec:
   accessModes:
     - ReadWriteOnce

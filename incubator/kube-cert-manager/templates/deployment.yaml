@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - image: "{{ .Values.image }}:{{ .Values.imageTag }}"
-          name: manager
+          name: kube-cert-manager
           args:
             - "-data-dir=/var/lib/cert-manager"
           {{if .Values.staging}}
