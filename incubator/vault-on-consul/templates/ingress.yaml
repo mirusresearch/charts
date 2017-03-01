@@ -1,7 +1,8 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "fullname" . }}
+  name: vault-ingress
+  namespace: "{{ template "namespace" . }}"
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
   annotations:
@@ -10,14 +11,14 @@ metadata:
     stable.k8s.psg.io/kcm.provider: "dnsmadeeasy"
     stable.k8s.psg.io/kcm.email: {{.Values.ingress.email}}
 spec:
-  # tls:
-  # - hosts:
-  #   - {{ .Values.ingress.domain | quote}}
-  #   secretName: {{ .Values.ingress.domain | quote}}
+  tls:
+  - hosts:
+    - {{ .Values.ingress.domain | quote}}
+    secretName: {{ .Values.ingress.domain | quote}}
   rules:
   - host: {{ .Values.ingress.domain | quote}}
     http:
       paths:
       - backend:
-          serviceName: {{ template "fullname" . }}
+          serviceName: vault-svc
           servicePort: 80

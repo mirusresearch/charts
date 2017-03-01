@@ -1,7 +1,8 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{.Release.Name}}
+  name: vault-deployment
+  namespace: "{{ template "namespace" . }}"
   labels:
     app: {{.Release.Name}}
 spec:
@@ -9,10 +10,10 @@ spec:
   template:
     metadata:
       labels:
-        app: {{.Release.Name}}
+        app: vault-deployment
     spec:
       containers:
-      - name: {{.Release.Name}}
+      - name: vault
         image: "{{.Values.image}}:{{.Values.imageTag}}"
         imagePullPolicy: {{.Values.imagePullPolicy}}
         command:
@@ -40,7 +41,7 @@ spec:
       volumes:
       - name: config
         configMap:
-          name: {{.Release.Name}}-config
+          name: vault-config
           items:
           - key: vault-config.hcl
             path: vault-config.hcl

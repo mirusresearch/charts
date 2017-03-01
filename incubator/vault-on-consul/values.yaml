@@ -3,6 +3,7 @@ imageTag: "0.6.5"
 imagePullPolicy: "IfNotPresent"
 cpu: "512m"
 memory: "200Mi"
+namespace: "vault-on-consul"
 consul:
   image: "consul"
   imageTag: "0.7.2"

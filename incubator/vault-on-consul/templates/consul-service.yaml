@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ template "fullname" . }}-consul-svc"
+  name: "consul-svc"
+  namespace: "{{ template "namespace" . }}"
   labels:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
-    component: "{{.Release.Name}}-consul"
+    component: "consul"
   annotations:
     service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
 spec:
@@ -33,4 +34,4 @@ spec:
     - name: consuldns
       port: 8600
   selector:
-    component: "{{.Release.Name}}-consul"
+    component: "consul"
