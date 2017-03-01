@@ -1,7 +1,21 @@
 apiVersion: v1
 entries:
+  gce-provisioner:
+  - created: 2017-03-01T15:08:15.026321096-06:00
+    description: Simply creates the storage calss object for the gce provisioner
+    digest: 7d1b7ff8941447baf698254f31404abd8d0cea244b0d56ddf45978ff92a006d9
+    home: https://github.com/mirusresearch/charts/incubator/gce-provisioner
+    maintainers:
+    - email: don@mirusresearch.com
+      name: Don Spaulding
+    name: gce-provisioner
+    sources:
+    - https://github.com/mirusresearch/charts/incubator/gce-provisioner
+    urls:
+    - https://mirusresearch.github.io/charts/incubator/gce-provisioner-1.0.0.tgz
+    version: 1.0.0
   hostpath-provisioner:
-  - created: 2017-03-01T15:07:29.674668351-06:00
+  - created: 2017-03-01T15:08:15.026536345-06:00
     description: hostpath-provisioner Chart for Kubernetes.
     digest: 2238af18002ae5b1dcacabd37b40aeb0a3c4501cc29a87bf1a8a9defad68bcaa
     home: https://github.com/mirusresearch/charts/incubator/hostpath-provisioner
@@ -15,7 +29,7 @@ entries:
     - https://mirusresearch.github.io/charts/incubator/hostpath-provisioner-1.0.0.tgz
     version: 1.0.0
   nfs-provisioner:
-  - created: 2017-03-01T15:07:29.675148231-06:00
+  - created: 2017-03-01T15:08:15.027627895-06:00
     description: nfs-provisioner Chart for Kubernetes.
     digest: 17aa09cb01dd2739328dd95a008d37a6b492dac26d7fbaa197da27db2e012259
     home: https://github.com/kubernetes-incubator/nfs-provisioner
@@ -28,7 +42,7 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.2.tgz
     version: 1.0.2
-  - created: 2017-03-01T15:07:29.674921231-06:00
+  - created: 2017-03-01T15:08:15.026903118-06:00
     description: nfs-provisioner Chart for Kubernetes.
     digest: d5a860790f84a6d25c87fa9e8682a6c30a27da30b5a1ff6aebce10eadb14a5dc
     home: https://github.com/kubernetes-incubator/nfs-provisioner
@@ -42,7 +56,7 @@ entries:
     - https://mirusresearch.github.io/charts/incubator/nfs-provisioner-1.0.1-a.tgz
     version: 1.0.1-a
   nginx-ingress-controller:
-  - created: 2017-03-01T15:07:29.675794014-06:00
+  - created: 2017-03-01T15:08:15.027852989-06:00
     description: nginx-ingress-controller Chart for Kubernetes.
     digest: 9db93615e30032d619d76a5e3eaea0d408f451166c10d2114204977e9ee2a1cd
     home: https://github.com/mirusresearch/charts/incubator/nginx-ingress-controller
@@ -56,7 +70,7 @@ entries:
     - https://mirusresearch.github.io/charts/incubator/nginx-ingress-controller-1.0.0.tgz
     version: 1.0.0
   vault-consul-ui:
-  - created: 2017-03-01T15:07:29.676204348-06:00
+  - created: 2017-03-01T15:08:15.027993063-06:00
     description: wraps vault, consul, and vault ui chart together
     digest: e35df8e18b4400aa6f61ee5b9b942714104cc2781d2dc8421c8f6add661c378b
     home: https://github.com/kubernetes-incubator/vault-consul-ui
@@ -71,7 +85,7 @@ entries:
     version: 0.1.0
   vault-on-consul:
   - apiVersion: v1
-    created: 2017-03-01T15:07:29.676934475-06:00
+    created: 2017-03-01T15:08:15.028324741-06:00
     description: A Hashicorp Vault chart for Kubernetes
     digest: 0f549590888d5ef44072ad4248c13911e024a28109c42667abc7965f908f04d3
     engine: gotpl
@@ -90,4 +104,4 @@ entries:
     urls:
     - https://mirusresearch.github.io/charts/incubator/vault-on-consul-1.0.0.tgz
     version: 1.0.0
-generated: 2017-03-01T15:07:29.674293002-06:00
+generated: 2017-03-01T15:08:15.026034735-06:00
