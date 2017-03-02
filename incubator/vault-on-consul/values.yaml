@@ -6,13 +6,14 @@ memory: "200Mi"
 namespace: "vault-on-consul"
 consul:
   image: "consul"
-  imageTag: "0.7.2"
+  imageTag: "0.7.5"
   replicaCount: 3
   storage: "500Mi"
   storageClass: "default"
   cpu: "100m"
   memory: "256Mi"
   persistentStorageSize: "1Gi"
+  Component: "consul"
 ingress:
   email: test@example.com
   domain: vault.yourproject.com

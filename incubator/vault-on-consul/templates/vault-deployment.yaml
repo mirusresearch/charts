@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: vault-deployment
-  namespace: "{{ template "namespace" . }}"
+  # namespace: "{{ template "namespace" . }}"
   labels:
     app: {{.Release.Name}}
 spec:

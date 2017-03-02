@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: vault-ingress
-  namespace: "{{ template "namespace" . }}"
+  # namespace: "{{ template "namespace" . }}"
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
   annotations:
