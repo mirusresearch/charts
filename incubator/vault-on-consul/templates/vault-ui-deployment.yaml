@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vault-ui-deployment
+  labels:
+    app: {{.Release.Name}}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vault-ui-deployment
+    spec:
+      containers:
+      - name: vault-ui
+        image: "{{.Values.vaultui.image}}:{{.Values.vaultui.imageTag}}"
+        imagePullPolicy: {{.Values.imagePullPolicy}}
+        ports:
+          - name: http
+            containerPort: 8000
+        env:
+        - name: VAULT_URL_DEFAULT
+          value: "https://{{ .Values.vault.domain }}/"
+        - name: VAULT_AUTH_DEFAULT
+          value: {{ .Values.vault.authType }}
+        resources:
+          limits:
+            cpu: {{ .Values.vaultui.cpu }}
+            memory: {{ .Values.vaultui.memory }}
+          requests:
+            cpu: {{ .Values.vaultui.cpu }}
+            memory: {{ .Values.vaultui.memory }}
+
+
+

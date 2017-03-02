@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vault-ui-ingress
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # tells k8 to use our nginx ingress controller and not the gce one
+    stable.k8s.psg.io/kcm.enabled: "true" # these lines tell the cert manager to go get certs for this ingress
+    stable.k8s.psg.io/kcm.provider: "dnsmadeeasy"
+    stable.k8s.psg.io/kcm.email: {{.Values.vault.email}}
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.vaultui.domain | quote}}
+    secretName: {{ .Values.vaultui.domain | quote}}
+  rules:
+  - host: {{ .Values.vaultui.domain | quote}}
+    http:
+      paths:
+      - backend:
+          serviceName: vault-ui-svc
+          servicePort: 80

@@ -1,19 +1,27 @@
-image: "vault"
-imageTag: "0.6.5"
+
 imagePullPolicy: "IfNotPresent"
-cpu: "512m"
-memory: "200Mi"
-namespace: "vault-on-consul"
+vault:
+  authType: "TOKEN"
+  image: "vault"
+  imageTag: "0.6.5"
+  cpu: "50m"
+  memory: "200Mi"
+  domain: vault.yourproject.com
+  email: test@example.com
+vaultui:
+  image: "djenriquez/vault-ui"
+  imageTag: "latest"
+  cpu: "50m"
+  memory: "50Mi"
+  domain: vault-ui.yourproject.com
 consul:
   image: "consul"
   imageTag: "0.7.5"
   replicaCount: 3
   storage: "500Mi"
   storageClass: "default"
-  cpu: "100m"
+  cpu: "50m"
   memory: "256Mi"
   persistentStorageSize: "1Gi"
   Component: "consul"
-ingress:
-  email: test@example.com
-  domain: vault.yourproject.com
+

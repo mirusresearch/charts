@@ -1,4 +1,4 @@
-name: kcm
+name: kube-cert-manager
 home: https://github.com/mirusresearch/charts/incubator/kube-cert-manager
 version: 1.0.0
 description: auto generate lets encrypt ssl certs

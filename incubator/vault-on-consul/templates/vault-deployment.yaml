@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: vault-deployment
-  # namespace: "{{ template "namespace" . }}"
   labels:
     app: {{.Release.Name}}
 spec:
@@ -14,7 +13,7 @@ spec:
     spec:
       containers:
       - name: vault
-        image: "{{.Values.image}}:{{.Values.imageTag}}"
+        image: "{{.Values.vault.image}}:{{.Values.vault.imageTag}}"
         imagePullPolicy: {{.Values.imagePullPolicy}}
         command:
           - vault
@@ -33,11 +32,11 @@ spec:
           mountPath: /etc/vault/cfg
         resources:
           limits:
-            cpu: {{ .Values.cpu }}
-            memory: {{ .Values.memory }}
+            cpu: {{ .Values.vault.cpu }}
+            memory: {{ .Values.vault.memory }}
           requests:
-            cpu: {{ .Values.cpu }}
-            memory: {{ .Values.memory }}
+            cpu: {{ .Values.vault.cpu }}
+            memory: {{ .Values.vault.memory }}
       volumes:
       - name: config
         configMap:
