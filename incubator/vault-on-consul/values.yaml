@@ -12,7 +12,7 @@ vaultui:
   image: "djenriquez/vault-ui"
   imageTag: "latest"
   cpu: "50m"
-  memory: "50Mi"
+  memory: "250Mi"
   domain: vault-ui.yourproject.com
 consul:
   image: "consul"
