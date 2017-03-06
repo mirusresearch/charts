@@ -1,3 +1,5 @@
+local: false # if true, does not create service, and simply expose from ip host port if node running (for minikube cluster)
 image: nginxdemos/nginx-ingress
 imageTag: alpine
 replicaCount: 1
+loadBalancerIP: 127.0.0.1 # give a static ip, only if local = false
