@@ -12,4 +12,4 @@ for repo_dir in "${REPO_DIRS[@]}"; do
   git add $repo_dir;
 done;
 
-git commit -m "Refresh helm indexes." + $1
+git commit -m "Refresh helm indexes. $1"
