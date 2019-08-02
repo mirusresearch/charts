@@ -16,13 +16,20 @@ controller:
   name: controller
   image:
     repository: haproxytech/kubernetes-ingress
-    tag: "1.0.2"
+    tag: "1.1.0"
     pullPolicy: IfNotPresent
 
   replicaCount: 1
 
   ## Name of the ingress class to route through this controller
   ingressClass: haproxytech
+
+
+  namespace:
+    # optional, if listed only selected namespaces will be monitored
+    whitelist: []
+    # optional, if listed only selected namespaces will be excluded
+    blacklist: []
 
   ## Additional command line arguments to pass to haproxy-ingress-controller
   ##
@@ -47,6 +54,7 @@ controller:
     # load-balance: "roundrobin"
     # maxconn: "2000"
     # nbthread: "1"
+    # pod-maxconn: ""
     # rate-limit: "OFF"
     # rate-limit-expire: "30m"
     # rate-limit-interval: "10s"
@@ -64,6 +72,8 @@ controller:
     # timeout-server: "50s"
     # timeout-tunnel: "1h"
     # timeout-http-keep-alive: "1m"
+    # whitelist: ""
+    # whitelist-with-rate-limit: ""
 
   service:
     annotations: {}

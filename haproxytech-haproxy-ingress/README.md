@@ -43,6 +43,8 @@ Parameter | Description | Default
 `controller.image.tag` | controller container image tag | `1.0.2`
 `controller.image.pullPolicy` | controller container image pullPolicy | `IfNotPresent`
 `controller.ingressClass` | name of the ingress class to route through this controller | `haproxytech`
+`controller.namespace.whitelist` | optional, only listed namespaces will be monitored | `[]
+`controller.namespace.blacklist` | optional, listed namespaces will be excluded | `[]`
 `controller.extraArgs` | extra command line arguments for the ingress controller | `{}`
 `controller.extraEnv` | extra environment variables for the ingress controller | `{`}
 `controller.podLabels` | Labels for the haproxy-ingress-controller pod | `{}`
