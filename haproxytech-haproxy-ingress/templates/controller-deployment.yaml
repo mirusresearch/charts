@@ -36,6 +36,12 @@ spec:
           {{- end }}
           - --ingress.class={{ .Values.controller.ingressClass }}
           - --default-backend-service={{ if .Values.defaultBackend.enabled }}{{ .Release.Namespace }}/{{ template "haproxytech-ingress.defaultBackend.fullname" . }}{{ else }}{{ .Values.controller.defaultBackendService }}{{ end }}
+          {{- range $key, $value := .Values.controller.namespace.whitelist }}
+          - --namespace-whitelist={{ $value }}
+          {{- end }}
+          {{- range $key, $value := .Values.controller.namespace.blacklist }}
+          - --namespace-blacklist={{ $value }}
+          {{- end }}
           {{- range $key, $value := .Values.controller.extraArgs }}
             {{- if $value }}
             - --{{ $key }}={{ $value }}
