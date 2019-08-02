@@ -49,8 +49,15 @@ Create the name of the service account to use
 */}}
 {{- define "haproxytech-ingress.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
-    {{ default (include "haproxytech-ingress.fullname" .) .Values.serviceAccount.name }}
+{{ default (include "haproxytech-ingress.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
-    {{ default "default" .Values.serviceAccount.name }}
+{{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
+{{- end -}}
+
+{{/*
+tag name of container image
+*/}}
+{{- define "haproxytech-ingress.tag" -}}
+{{- default .Chart.AppVersion .Values.controller.image.tag -}}
 {{- end -}}

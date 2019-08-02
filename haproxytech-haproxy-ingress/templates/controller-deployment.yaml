@@ -27,7 +27,7 @@ spec:
       serviceAccountName: {{ template "haproxytech-ingress.fullname" . }}
       containers:
       - name: haproxy-ingress
-        image:  "{{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag }}"
+        image:  "{{ .Values.controller.image.repository }}:{{ template "haproxytech-ingress.tag" . }}"
         imagePullPolicy: "{{ .Values.controller.image.pullPolicy }}"
         args:
           - --default-ssl-certificate=default/tls-secret
