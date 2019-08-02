@@ -40,7 +40,7 @@ Parameter | Description | Default
 `serviceAccount.name` | ServiceAccount to be used | ``
 `controller.name` | name of the controller component | `controller`
 `controller.image.repository` | controller container image repository | `haproxytech/kubernetes-ingress`
-`controller.image.tag` | controller container image tag | `1.0.2`
+`controller.image.tag` | override controller container image tag | `Chart.yaml appVersion`
 `controller.image.pullPolicy` | controller container image pullPolicy | `IfNotPresent`
 `controller.ingressClass` | name of the ingress class to route through this controller | `haproxytech`
 `controller.namespace.whitelist` | optional, only listed namespaces will be monitored | `[]
