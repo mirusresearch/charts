@@ -14,6 +14,6 @@ roleRef:
   name: {{ template "haproxytech-ingress.fullname" . }}
 subjects:
 - kind: ServiceAccount
-  name: haproxy-ingress-service-account
+  name: {{ template "haproxytech-ingress.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 {{- end -}}
