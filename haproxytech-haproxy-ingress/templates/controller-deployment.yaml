@@ -24,7 +24,7 @@ spec:
 {{ toYaml .Values.controller.podLabels | indent 8 }}
         {{- end }}
     spec:
-      serviceAccountName: {{ template "haproxytech-ingress.fullname" . }}
+      serviceAccountName: {{ template "haproxytech-ingress.serviceAccountName" . }}
       containers:
       - name: haproxy-ingress
         image:  "{{ .Values.controller.image.repository }}:{{ template "haproxytech-ingress.tag" . }}"
