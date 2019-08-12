@@ -1,0 +1,30 @@
+{{ if eq .Values.controller.kind "DaemonSet" -}}
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: {{ template "haproxytech-ingress.name" . }}
+    chart: {{ template "haproxytech-ingress.chart" . }}
+    release: {{ .Release.Name }}
+    component: "{{ .Values.controller.name }}"
+    heritage: {{ .Release.Service }}
+  name: {{ template "haproxytech-ingress.fullname" . }}
+spec:
+  updateStrategy:
+{{ toYaml .Values.controller.updateStrategy | indent 4 }}
+  selector:
+    matchLabels:
+      app: {{ template "haproxytech-ingress.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "haproxytech-ingress.name" . }}
+        component: "{{ .Values.controller.name }}"
+        release: {{ .Release.Name }}
+        {{- if .Values.controller.podLabels }}
+{{ toYaml .Values.controller.podLabels | indent 8 }}
+        {{- end }}
+    spec:
+      {{ template "haproxytech-ingress.podSpec" . }}
+{{- end }}
