@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This chart bootstraps an haproxy-ingress deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps an haproxytech-ingress-controller deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
   - Kubernetes 1.8+ with Beta APIs enabled
@@ -13,7 +13,7 @@ This chart bootstraps an haproxy-ingress deployment on a [Kubernetes](http://kub
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install --name my-release incubator/haproxytech-haproxy-ingress
+$ helm install --name my-release mirusresearch/haproxytech-haproxy-ingress
 ```
 
 The command deploys haproxytech-haproxy-ingress on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -38,6 +38,7 @@ Parameter | Description | Default
 `rbac.security.enable` | If true, and rbac.create is true, create & use PSP resources | `false`
 `serviceAccount.create` | If true, create serviceAccount | `true`
 `serviceAccount.name` | ServiceAccount to be used | ``
+`controller.kind` | Type of deployment, DaemonSet or Deployment | `Deployment`
 `controller.name` | name of the controller component | `controller`
 `controller.image.repository` | controller container image repository | `haproxytech/kubernetes-ingress`
 `controller.image.tag` | override controller container image tag | `Chart.yaml appVersion`
@@ -88,6 +89,9 @@ Parameter | Description | Default
 `defaultBackend.podAnnotations` | Annotations for the default backend pod | `{}`
 `defaultBackend.podLabels` | Labels for the default backend pod | `{}`
 `defaultBackend.replicaCount` | the number of replicas to deploy (when `controller.kind` is `Deployment`) | `1`
+`controller.updateStrategy` | the update strategy settings | _see defaults below_
+`controller.updateStrategy.type` | the update strategy type to use | `RollingUpdate`
+`controller.updateStrategy.rollingUpdate.maxUnavailable` | the max number of unavailable controllers when doing rolling updates | `1`
 `defaultBackend.minAvailable` | PodDisruptionBudget minimum available default backend pods | `1`
 `defaultBackend.resources` | default backend pod resources | _see defaults below_
 `defaultBackend.resources.limits.cpu` | default backend cpu resources limit | `10m`
