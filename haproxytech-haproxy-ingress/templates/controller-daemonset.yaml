@@ -1,6 +1,6 @@
-{{ if eq .Values.controller.kind "Deployment" -}}
+{{ if eq .Values.controller.kind "DaemonSet" -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   labels:
     app: {{ template "haproxytech-ingress.name" . }}
@@ -10,7 +10,8 @@ metadata:
     heritage: {{ .Release.Service }}
   name: {{ template "haproxytech-ingress.fullname" . }}
 spec:
-  replicas: {{ .Values.controller.replicaCount }}
+  updateStrategy:
+{{ toYaml .Values.controller.updateStrategy | indent 4 }}
   selector:
     matchLabels:
       app: {{ template "haproxytech-ingress.name" . }}

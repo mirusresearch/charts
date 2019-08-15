@@ -13,6 +13,7 @@ serviceAccount:
   name:
 
 controller:
+  kind: "Deployment" # DaemonSet
   name: controller
   image:
     repository: haproxytech/kubernetes-ingress
@@ -23,9 +24,13 @@ controller:
 
   replicaCount: 1
 
+  # For daemonset
+  updateStrategy:
+    type: RollingUpdate
+    maxUnavailable: 1
+
   ## Name of the ingress class to route through this controller
   ingressClass: haproxytech
-
 
   namespace:
     # optional, if listed only selected namespaces will be monitored
