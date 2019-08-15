@@ -2,8 +2,27 @@ apiVersion: v1
 entries:
   haproxytech-haproxy-ingress:
   - apiVersion: v1
+    appVersion: 1.1.1
+    created: "2019-08-15T15:04:26.496852809-05:00"
+    description: The official haproxy 2.0 ingress controller
+    digest: a3cbb145555e283c66395236ae4daab6005cd5b33c9c8a9c27eece33ec41d705
+    home: https://github.com/mirusresearch/charts
+    icon: http://www.haproxy.org/img/HAProxyCommunityEdition_60px.png
+    keywords:
+    - ingress
+    - haproxy
+    maintainers:
+    - email: alec@mirusresearch.com
+      name: alectroemel
+    name: haproxytech-haproxy-ingress
+    sources:
+    - https://github.com/haproxytech/kubernetes-ingress
+    urls:
+    - https://mirusresearch.github.com/charts/haproxytech-haproxy-ingress-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v1
     appVersion: 1.1.0
-    created: "2019-08-02T11:25:50.602838271-05:00"
+    created: "2019-08-15T15:04:26.496315977-05:00"
     description: The official haproxy 2.0 ingress controller
     digest: 5577e84fc1ed8141ccfc0f2de2b2d7d3e2a76a869bb8ede0d48bf313707876d8
     home: https://github.com/mirusresearch/charts
@@ -22,7 +41,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 1.0.2
-    created: "2019-08-02T11:25:50.602315878-05:00"
+    created: "2019-08-15T15:04:26.495835441-05:00"
     description: The official haproxy 2.0 ingress controller
     digest: c67c3705cd0615033c27c9e6158d14029be2b8671693148163333feec408d493
     home: https://github.com/haproxytech/kubernetes-ingress
@@ -39,4 +58,4 @@ entries:
     urls:
     - https://mirusresearch.github.com/charts/haproxytech-haproxy-ingress-0.0.1.tgz
     version: 0.0.1
-generated: "2019-08-02T11:25:50.601606943-05:00"
+generated: "2019-08-15T15:04:26.495187631-05:00"
